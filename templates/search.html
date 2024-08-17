@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block title %}Search Cafe{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">☕️ Coffee & Wifi 💻</h1>
+  <hr class="my-4">
+
+  {% if response %}
+  <p class="space-above">Sorry,we don't have a cafe there.</p>
+  {% endif %}
+
+  {{ wtf.quick_form(search, novalidate=True) }}
+
+</div>
+    </div>
+
+{% endblock %}

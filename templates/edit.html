@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block title %}Edit A New Cafe{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Edit a cafe in the database</h1>
+      <div class="text-right">
+        <a class="button btn btn-warning btn-lg" href={{url_for("delete", name=form.cafe.data)}} role="button">🗑️</a>
+      </div>
+
+      <!-- This is where your WTForm will go -->
+      {% if sent == True %}
+        <p class="space-above">Edited Cafe</p>
+      {% endif %}
+
+      {{ wtf.quick_form(form, novalidate=True) }}
+
+	  <p class="space-above"><a href="{{ url_for('cafes') }}">See all cafes</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

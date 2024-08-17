@@ -1,0 +1,20 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block title %}Coffee and Wifi{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">Cafe Successfully Deleted</h1>
+  <hr class="my-4">
+      <p><a href="{{ url_for('cafes') }}">Return to index page</a></p>
+</div>
+    </div>
+
+{% endblock %}
